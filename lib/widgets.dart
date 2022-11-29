@@ -16,7 +16,6 @@ class _CountryState extends State<Country> {
     return Container(
         margin: const EdgeInsets.all(8),
         child: GestureDetector(
-          //A widget that clips its child using a rounded rectangle.
           onTap: (() => widget.voidCallBack()),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(15),
@@ -33,9 +32,9 @@ class _CountryState extends State<Country> {
 }
 
 class QuizFlag extends StatelessWidget {
-  String correctFlag;
+  final String correctFlag;
 
-  QuizFlag({required this.correctFlag, super.key});
+  const QuizFlag({required this.correctFlag, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +44,7 @@ class QuizFlag extends StatelessWidget {
       width: double.infinity,
       height: 45,
       decoration: BoxDecoration(
-          color: Color.fromRGBO(0, 0, 0, 0.2),
+          color: const Color.fromRGBO(0, 0, 0, 0.2),
           borderRadius: BorderRadius.circular(10),
           border:
               Border.all(color: const Color.fromRGBO(0, 0, 0, 0.2), width: 3),
@@ -66,35 +65,33 @@ class QuizFlag extends StatelessWidget {
 }
 
 class ScoreTable extends StatelessWidget {
-  int score, highScore;
+  final int score, highScore;
 
-  ScoreTable({required this.score, required this.highScore, super.key});
+  const ScoreTable({required this.score, required this.highScore, super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
           gradient: LinearGradient(colors: [
-        Color.fromARGB(255, 59, 59, 59),
-        Color.fromARGB(255, 31, 28, 41),
-        Color.fromARGB(255, 59, 59, 59)
+        Color.fromARGB(63, 59, 59, 59),
+        Color.fromARGB(63, 31, 28, 41),
+        Color.fromARGB(63, 59, 59, 59)
       ], begin: Alignment.centerLeft, end: Alignment.centerRight)),
       width: double.maxFinite,
       child: Column(
         children: [
-          Container(
-            child: Text("Your Score : $score",
-                style: const TextStyle(fontSize: 26, color: Colors.white)),
-          ),
+          Text("Your Score : $score",
+              style: const TextStyle(
+                  fontSize: 26, color: Color.fromARGB(255, 210, 200, 200))),
           //A thin horizontal line, with padding on either side.
           const Divider(
             color: Colors.white,
             height: 2,
           ),
-          Container(
-            child: Text("Best Score : $highScore",
-                style: const TextStyle(fontSize: 26, color: Colors.white)),
-          )
+          Text("Best Score : $highScore",
+              style: const TextStyle(
+                  fontSize: 26, color: Color.fromARGB(255, 210, 200, 200)))
         ],
       ),
     );

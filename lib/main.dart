@@ -14,12 +14,28 @@ class Flags extends StatefulWidget {
 }
 
 class _Flags extends State<Flags> {
+  bool playing = false;
+
+  void changeGround() {
+    setState(() {
+      playing = false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: "Flags Quiz",
-        home: Scaffold(
-          body: PlayGround(),
-        ));
+      title: "Flags Quiz",
+      home: Scaffold(
+          body: playing
+              ? PlayGround(
+                  voidCallBack: () {
+                    setState(() => playing = false);
+                  },
+                )
+              : MainScreen(voidCallBack: () {
+                  setState(() => playing = true);
+                })),
+    );
   }
 }

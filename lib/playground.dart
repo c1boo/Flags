@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'countries.dart';
 
 class PlayGround extends StatefulWidget {
-  PlayGround({super.key});
+  final Function voidCallBack;
+
+  const PlayGround({required this.voidCallBack, super.key});
 
   @override
   State<PlayGround> createState() => _PlayGround();
@@ -29,9 +31,6 @@ class _PlayGround extends State<PlayGround> {
     }
 
     correctCountry = flags[Random().nextInt(6)];
-
-    var format = countries.firstWhere(
-        (element) => element['Code'] == correctCountry.toUpperCase())["Name"];
   }
 
   void checkAnswer() {
@@ -44,7 +43,7 @@ class _PlayGround extends State<PlayGround> {
       setState(() {
         highScore = (score > highScore) ? score : highScore;
         score = 0;
-        randomFlags();
+        widget.voidCallBack();
       });
     }
   }
@@ -66,7 +65,7 @@ class _PlayGround extends State<PlayGround> {
         ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
         alignment: AlignmentDirectional.center,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
               Country(
