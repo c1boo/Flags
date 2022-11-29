@@ -1,3 +1,4 @@
+import 'package:flags/playground.dart';
 import 'package:flutter/material.dart';
 import 'widgets.dart';
 
@@ -32,7 +33,9 @@ class _MainScreen extends State<MainScreen> {
               Container(
                 margin: const EdgeInsets.all(20),
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    PlayGround();
+                  },
                   style: TextButton.styleFrom(
                     backgroundColor: Colors.green,
                   ),
@@ -45,7 +48,7 @@ class _MainScreen extends State<MainScreen> {
                   ),
                 ),
               ),
-              const ScoreTable()
+              //ScoreTable()
             ]));
   }
 }

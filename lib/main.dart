@@ -19,10 +19,6 @@ class _Flags extends State<Flags> {
     return MaterialApp(
         title: "Flags Quiz",
         home: Scaffold(
-          appBar: AppBar(
-            title: const Text("Flags Quiz"),
-            backgroundColor: const Color.fromARGB(255, 46, 46, 46),
-          ),
           body: PlayGround(),
         ));
   }
